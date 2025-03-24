@@ -705,7 +705,7 @@
     #      zos_cert_p12_tdes_base64: "{{ zos_certificate_p12_tdes_base64 }}"
     #      zos_cert_p12_aes_base64: "{{ zos_certificate_p12_aes_base64 }}"
     #      zos_cert_p12_password: "{{ zos_certificate_p12_password }}"
-
+    # "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
 
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
