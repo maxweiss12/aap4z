@@ -699,13 +699,7 @@
     #    job_template: "z/OS TSO Command(s)"
     #    validate_certs: false
     #    extra_vars:
-    #      zos_ca_cert: "{{ zos_intermediate }}"
-    #      zos_cert: "{{ zos_certificate }}"
-    #      zos_cert_key: "{{ zos_private_key }}"
-    #      zos_cert_p12_tdes_base64: "{{ zos_certificate_p12_tdes_base64 }}"
-    #      zos_cert_p12_aes_base64: "{{ zos_certificate_p12_aes_base64 }}"
-    #      zos_cert_p12_password: "{{ zos_certificate_p12_password }}"
-    # "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
+    #      zos_tso_command: "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
 
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
