@@ -696,7 +696,7 @@
     #  tags: job, jobs
     #  ansible.controller.job_launch:
     #    controller_oauthtoken: "{{ controller_token }}"
-    #    job_template: "z/OS Certs - Add CA Cert"
+    #    job_template: "z/OS TSO Command(s)"
     #    validate_certs: false
     #    extra_vars:
     #      zos_ca_cert: "{{ zos_intermediate }}"
@@ -705,7 +705,7 @@
     #      zos_cert_p12_tdes_base64: "{{ zos_certificate_p12_tdes_base64 }}"
     #      zos_cert_p12_aes_base64: "{{ zos_certificate_p12_aes_base64 }}"
     #      zos_cert_p12_password: "{{ zos_certificate_p12_password }}"
-    #  register: zos_add_cert_job
+
 
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
