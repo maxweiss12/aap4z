@@ -1,31 +1,22 @@
 {
-    "name": "z/OS Certs - List Cert",
-    "description": "This playbook displays a certificate's details.",
+    "name": "SMPE - Query CSI",
+    "description": "A playbook to query CSI for received PTFs",
     "spec": [
         {
-        "type": "multiplechoice",
-        "question_name": "Type",
-        "question_description": "Specifies the type of certificate to list.",
-        "variable": "cert_type_survey",
-        "choices": [ "CERTAUTH", "SITE", "USER" ],
-        "required": false,
-        "default": "SITE"
-        },
-        {
         "type": "text",
-        "question_name": "Label",
-        "question_description": "The human-readable tag of the certificate to list.",
-        "variable": "cert_label_survey",
-        "required": false,
-        "default": "TEST SITE"
-        },
-        {
-        "type": "text",
-        "question_name": "Owner ID",
-        "question_description": "Only required if 'Type' is USER. Specifies the user ID that owns this certificate.",
-        "variable": "owner_id_survey",
-        "required": false,
+        "question_name": "ptf_name",
+        "question_description": "Specifies the name of the PTF.",
+        "variable": "ptf_name",
+        "required": true,
         "default": ""
+        },
+        {
+        "type": "text",
+        "question_name": "global_csi",
+        "question_description": "The global CSI to query",
+        "variable": "global_csi",
+        "required": true,
+        "default": "SMPE.PROGPROD.CSI"
         }
     ]
 }
