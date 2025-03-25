@@ -675,10 +675,10 @@
         controller_oauthtoken: "{{ controller_token }}"
         name: "zOS Passphrase Credential"
         description: "Credential type for zOS passphrase"
-        kind: "cloud" 
+        kind: cloud 
         validate_certs: false
-        inputs: {"fields": [{"id": "username", "type": "string", "label": "zOS User"}, {"id": "password", "type": "string", "label": "Passphrase", "secret": true}], "required": ["username", "password"]}
-        injectors: {"extra_vars": {"zos_userid": "{{ username }}","zos_passphrase": "{{ password }}"}}
+        #inputs: {"fields": [{"id": "username", "type": "string", "label": "zOS User"}, {"id": "password", "type": "string", "label": "Passphrase", "secret": true}], "required": ["username", "password"]}
+        #injectors: {"extra_vars": {"zos_userid": "{{ username }}","zos_passphrase": "{{ password }}"}}
 
     #- name: generate random string
     #  ansible.builtin.set_fact:
