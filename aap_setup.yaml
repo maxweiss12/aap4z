@@ -673,11 +673,10 @@
       tags: inventory, hosts
       ansible.controller.credential_type:
         controller_oauthtoken: "{{ controller_token }}"
-        name: zOS Passphrase Credential
-        organization: Default
+        name: "zOS Passphrase Credential"
+        organization: "Default"
         description: "Credential type for zOS passphrase"
         validate_certs: false
-        kind: cloud
         inputs: {"fields": [{"id": "username", "type": "string", "label": "zOS User"}, {"id": "password", "type": "string", "label": "Passphrase", "secret": true}], "required": ["username", "password"]}
         injectors: {'extra_vars': {'zos_userid': '{{ username }}', 'zos_passphrase': '{{ password }}'}}
 
