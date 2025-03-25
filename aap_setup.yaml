@@ -681,7 +681,11 @@
         injectors: 
           extra_vars:
             #zos_userid: '{{ username }}'
-            zos_passphrase: "{% raw %}'{{ password }}'{% endraw %}"
+            #zos_passphrase: "{% raw %}'{{ password }}'{% endraw %}"
+            zos_passphrase: "{{ '{{' }} password {{ '}}' }}"
+
+
+            
         #injectors: {"extra_vars": {"zos_userid": "{{ username }}", "zos_passphrase": "{{ password }}"}}
 
     #- name: generate random string
