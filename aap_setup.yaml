@@ -669,20 +669,19 @@
         survey_enabled: true
         survey_spec: "{{ lookup('file', 'smpe_spec.json') }}"
 
-  #  - name: Create new credential type for zOS passphrase
-  #    tags: inventory, hosts
-  #    ansible.controller.credential_type:
-  #      controller_oauthtoken: "{{ controller_token }}"
-  #      name: "zOS Passphrase Credential"
-  #      description: "Credential type for zOS passphrase"
-  #      kind: cloud 
-  #      validate_certs: false
-  #      inputs: {"fields": [{"id": "username", "type": "string", "label": "zOS User"}, {"id": "password", "type": "string", "label": "Passphrase", "secret": true}]}
-    #    injectors: 
-    #      extra_vars:
-          
-    #        zos_userid: "{{ '{{' }} username {{ '}}' }}"
-    #        zos_passphrase: "{{ '{{' }} password {{ '}}' }}"
+    - name: Create new credential type for zOS passphrase
+      tags: inventory, hosts
+      ansible.controller.credential_type:
+        controller_oauthtoken: "{{ controller_token }}"
+        name: "zOS Passphrase Credential"
+        description: "Credential type for zOS passphrase"
+        kind: cloud 
+        validate_certs: false
+        inputs: {"fields": [{"id": "username", "type": "string", "label": "zOS User"}, {"id": "password", "type": "string", "label": "Passphrase", "secret": true}]}
+        injectors: 
+          extra_vars:
+            zos_userid: "{{ '{{' }} username {{ '}}' }}"
+            zos_passphrase: "{{ '{{' }} password {{ '}}' }}"
 
    # - name: Create 'zOS Passphrase' credential
    #   tags: inventory, hosts, credential, credentials
