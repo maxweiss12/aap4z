@@ -683,6 +683,22 @@
             zos_userid: "{{ '{{' }} username {{ '}}' }}"
             zos_passphrase: "{{ '{{' }} password {{ '}}' }}"
 
+
+    - name: generate random string
+      ansible.builtin.set_fact:
+        zmf_password: "{{ lookup('community.general.random_string', min_lower=1, min_upper=1, min_numeric=2, length=10) }}"
+      no_log: true
+
+
+    - name: Launch 'TSO Command' job to change user passphrase
+      tags: job, jobs
+      ansible.controller.job_launch:
+        controller_oauthtoken: "{{ controller_token }}"
+        job_template: "z/OS TSO Command(s)"
+        validate_certs: false
+        extra_vars:
+          zos_tso_command: "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
+
     - name: Create 'zOS Passphrase' credential
       tags: inventory, hosts, credential, credentials
       ansible.controller.credential:
@@ -693,29 +709,9 @@
         description: "User’s zOS passphrase"
         inputs:
           username: 'testuser'
-          password: 'testpass'
+          password: "{{ zmf_password }}"
         validate_certs: false
-            
-
-    - name: generate random string
-      ansible.builtin.set_fact:
-        zmf_password: "{{ lookup('community.general.random_string', min_lower=1, min_upper=1, min_numeric=2, length=10) }}"
-      no_log: true
-
-
-    #- name: Execute the command(s) and return output.
-    #  ibm.ibm_zos_core.zos_tso_command:
-    #    commands:
-    #      - "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
-
-    - name: Launch 'TSO Command' job to change user passphrase
-      tags: job, jobs
-      ansible.controller.job_launch:
-        controller_oauthtoken: "{{ controller_token }}"
-        job_template: "z/OS TSO Command(s)"
-        validate_certs: false
-        extra_vars:
-          zos_tso_command: "ALTUSER IBMUSER PHRASE('{{ zmf_password }}') NOEXPIRE RESUME"
+        
 
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
