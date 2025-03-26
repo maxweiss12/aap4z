@@ -692,8 +692,8 @@
         organization: Default
         description: "User’s zOS passphrase"
         inputs:
-   	      username: "testuser"
-   	      password: "testpass"
+   	      username: 'testuser'
+   	      password: 'testpass'
         validate_certs: false
             
 
