@@ -727,7 +727,7 @@
         execution_environment: "aap4zos EE"
         state: "present"
         validate_certs: false
-
+        survey_enabled: false
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
