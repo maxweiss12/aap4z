@@ -712,7 +712,23 @@
           password: "{{ zmf_password }}"
         validate_certs: false
         
+    - name: Create 'SWI - Define SW instance' job template.
+      tags: job_template, template, templates
+      ansible.controller.job_template:
+        controller_oauthtoken: "{{ controller_token }}"
+        name: "SWI - Define SW instance"
+        description: "A playbook to define software instances to z/OSMF"
+        job_type: "run"
+        organization: "Default"
+        inventory: "AAP z/OS"
+        project: "aap4zos"
+        playbook: "z_apars/define_sw_instances.yml"
+        credentials: ["z/OS Host SSH Key", "zOS Passphrase"]
+        execution_environment: "aap4zos EE"
+        state: "present"
+        validate_certs: false
 
+    
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
       ansible.builtin.debug:
