@@ -693,8 +693,8 @@
    #     organization: "Default"
    #     description: "User’s zOS passphrase"
         #inputs:
-	#      zOS User: "testuser"
-	#      Passphrase: "testpass"
+   #	      zOS User: "testuser"
+   #	      Passphrase: "testpass"
    #     validate_certs: false
             
 
