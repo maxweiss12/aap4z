@@ -682,11 +682,22 @@
           extra_vars:
             #zos_userid: '{{ username }}'
             #zos_passphrase: "{% raw %}'{{ password }}'{% endraw %}"
+            zos_userid: "{{ '{{' }} username {{ '}}' }}"
             zos_passphrase: "{{ '{{' }} password {{ '}}' }}"
 
-
+    - name: Create ‘zOS Passphrase’ credential
+      tags: inventory, hosts, credential, credentials
+      ansible.controller.credential:
+        controller_oauthtoken: "{{ controller_token }}"
+        name: “zOS Passphrase”
+        credential_type: “zOS Passphrase Credential”
+        organization: Default
+        description: “User’s zOS passphrase”
+        inputs:
+	      zOS User: "testuser"
+	      Passphrase: "testpass"
+        validate_certs: false
             
-        #injectors: {"extra_vars": {"zos_userid": "{{ username }}", "zos_passphrase": "{{ password }}"}}
 
     #- name: generate random string
     #  ansible.builtin.set_fact:
