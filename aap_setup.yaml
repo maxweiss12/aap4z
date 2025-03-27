@@ -728,6 +728,14 @@
         state: "present"
         validate_certs: false
         survey_enabled: false
+
+    - name: Launch 'SWI - Define SW instance' job template.
+      tags: job, jobs
+      ansible.controller.job_launch:
+        controller_oauthtoken: "{{ controller_token }}"
+        job_template: "SWI - Define SW instance"
+        validate_certs: false
+
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
