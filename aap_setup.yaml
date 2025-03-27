@@ -770,6 +770,24 @@
         validate_certs: false
         survey_enabled: true
         survey_spec: "{{ lookup('file', 'swi_crit_updates_spec.json') }}"
+
+    - name: Create 'SWI - Query Missing Fixcat Updates' job template.
+      tags: job_template, template, templates
+      ansible.controller.job_template:
+        controller_oauthtoken: "{{ controller_token }}"
+        name: "SWI - Query Missing Fixcat Updates"
+        description: "A playbook to query SW instance for missing fixcat updates"
+        job_type: "run"
+        organization: "Default"
+        inventory: "AAP z/OS"
+        project: "aap4zos"
+        playbook: "z_apars/identify_missing_fixcat_updates.yml"
+        credentials: ["z/OS Host SSH Key", "zOS Passphrase"]
+        execution_environment: "aap4zos EE"
+        state: "present"
+        validate_certs: false
+        survey_enabled: true
+        survey_spec: "{{ lookup('file', 'swi_fixcat_updates_spec.json') }}"  
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
