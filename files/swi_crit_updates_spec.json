@@ -1,22 +1,14 @@
 {
-    "name": "SMPE - Query CSI",
-    "description": "A playbook to query CSI for received PTFs",
+    "name": "SWI - Query Missing Critical Updates",
+    "description": "A playbook to query SW instance for missing critical updates",
     "spec": [
         {
         "type": "text",
-        "question_name": "ptf_name",
-        "question_description": "Specifies the name of the PTF.",
-        "variable": "ptf_name",
+        "question_name": "software instance",
+        "question_description": "Specifies the name of the SWI defined to z/OSMF",
+        "variable": "swi_name_survey",
         "required": true,
         "default": ""
-        },
-        {
-        "type": "text",
-        "question_name": "global_csi",
-        "question_description": "The global CSI to query",
-        "variable": "global_csi",
-        "required": true,
-        "default": "SMPE.PROGPROD.CSI"
         }
     ]
 }
