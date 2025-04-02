@@ -558,6 +558,7 @@
           zos_cert_p12_tdes_base64: "{{ zos_certificate_p12_tdes_base64 }}"
           zos_cert_p12_aes_base64: "{{ zos_certificate_p12_aes_base64 }}"
           zos_cert_p12_password: "{{ zos_certificate_p12_password }}"
+        wait: true  
       register: zos_add_cert_job
 
     - name: Create 'z/OS Certs - Delete Cert' job template.
