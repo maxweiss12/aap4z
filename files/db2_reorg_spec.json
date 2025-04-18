@@ -1,22 +1,30 @@
 {
-    "name": "SMPE - Query CSI",
-    "description": "A playbook to query CSI for received PTFs",
+    "name": "Db2 Reorg",
+    "description": "A playbook to execute a Db2 for z/OS Reorg",
     "spec": [
         {
         "type": "text",
-        "question_name": "ptf_name",
-        "question_description": "Specifies the name of the PTF.",
-        "variable": "ptf_name",
+        "question_name": "Subsystem name",
+        "question_description": "Specifies the subsystem id of Db2",
+        "variable": "sub",
         "required": true,
         "default": ""
         },
         {
         "type": "text",
-        "question_name": "global_csi",
-        "question_description": "The global CSI to query",
-        "variable": "global_csi",
+        "question_name": "Database name",
+        "question_description": "Specifies the name of the database",
+        "variable": "db",
         "required": true,
-        "default": "SMPE.PROGPROD.CSI"
+        "default": ""
+        }
+        {
+        "type": "text",
+        "question_name": "Tablespace name",
+        "question_description": "Specifies the name of the tablespace to reorg",
+        "variable": "ts",
+        "required": true,
+        "default": ""
         }
     ]
 }
