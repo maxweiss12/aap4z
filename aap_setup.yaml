@@ -788,7 +788,25 @@
         state: "present"
         validate_certs: false
         survey_enabled: true
-        survey_spec: "{{ lookup('file', 'swi_fixcat_updates_spec.json') }}"  
+        survey_spec: "{{ lookup('file', 'swi_fixcat_updates_spec.json') }}"
+
+    - name: Create 'Db2 Reorg' job template.
+      tags: job_template, template, templates
+      ansible.controller.job_template:
+        controller_oauthtoken: "{{ controller_token }}"
+        name: "Db2 Reorg"
+        description: "A playbook to execute a Db2 for z/OS Reorg"
+        job_type: "run"
+        organization: "Default"
+        inventory: "AAP z/OS"
+        project: "aap4zos"
+        playbook: "zos_concepts/db2_reorg/db2-reorg.yml"
+        credentials: "z/OS Host SSH Key"
+        execution_environment: "aap4zos EE"
+        state: "present"
+        validate_certs: false
+        survey_enabled: true
+        survey_spec: "{{ lookup('file', 'db2_reorg_spec.json') }}"     
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
