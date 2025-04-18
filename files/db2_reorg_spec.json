@@ -17,7 +17,7 @@
         "variable": "db",
         "required": true,
         "default": ""
-        }
+        },
         {
         "type": "text",
         "question_name": "Tablespace name",
