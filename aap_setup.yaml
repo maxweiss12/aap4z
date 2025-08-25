@@ -808,6 +808,36 @@
         validate_certs: false
         survey_enabled: true
         survey_spec: "{{ lookup('file', 'db2_reorg_spec.json') }}"     
+
+    #- name: Create 'ShopZ & PDUU Setup' job template.
+    #  tags: job_template, template, templates
+    #  ansible.controller.job_template:
+    #    controller_oauthtoken: "{{ controller_token }}"
+    #    name: "ShopZ & PDUU Setup"
+    #    description: "This playbook configures a ShopZ certificate on Wazi and performs manual setup req for PDUU"
+    #    job_type: "run"
+    #    organization: "Default"
+    #    inventory: "AAP z/OS"
+    #    project: "aap4zos"
+    #    playbook: "tls/test_agents_setup.yml"
+    #    credentials: "z/OS Host SSH Key"
+    #    execution_environment: "aap4zos EE"
+    #    ask_extra_vars: true
+    #    state: "present"
+    #    validate_certs: false
+
+    #- name: Launch 'ShopZ & PDUU Setup' job.
+    #  tags: job, jobs, zos_add_cert, add_cert
+    #  ansible.controller.job_launch:
+    #    controller_oauthtoken: "{{ controller_token }}"
+    #    job_template: "ShopZ & PDUU Setup"
+    #    validate_certs: false
+    #    extra_vars:
+    #      shopz_cert: "{{ shopz_server_cert_base64 }}"
+    #      user_password: "{{ shopz_server_cert_password }}"
+    #    wait: true  
+    #  register: zos_add_cert_job
+    #  ignore_errors: true
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
       tags: setup_complete
