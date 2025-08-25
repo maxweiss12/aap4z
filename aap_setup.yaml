@@ -836,7 +836,7 @@
     #      shopz_cert: "{{ shopz_server_cert_base64 }}"
     #      user_password: "{{ shopz_server_cert_password }}"
     #    wait: true  
-    #  register: zos_add_cert_job
+    #  register: shopz_pduu_job
     #  ignore_errors: true
     
     - name: Ansible Automation Platform Controller and z/OS Host setup is complete, get automating!
