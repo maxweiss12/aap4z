@@ -1,6 +1,5 @@
 - name: Setup Ansible Automation Platform Controller server.
   hosts: automationcontroller
-  ignore_errors: true
   become: true
   tasks:
 
